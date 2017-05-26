@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sales">
+	<!-- salesTbl 리스트 불러들이기 -->
+	<!-- 
+	private String area_cd;
+	private String prod_id;
+	private int sales_cnt;
+	private String region_area;
+	private String cd_nm;
+	private String prod_nm;
+	
+	 -->
+	<select id="listAll" resultType="com.mdct.study.model.dto.SalesVO">
+		SELECT A.AREA_CD, A.PROD_ID, A.SALES_CNT, A.REGION_AREA, B.CD_NM, C.PROD_NM
+		FROM SALE_TBL_TEMP A, CD_ID_TEMP B, PROD_ID_TEMP C
+		WHERE A.AREA_CD = B.CD_ID AND A.PROD_ID=C.PROD_ID
+	</select>
+	
+</mapper>
