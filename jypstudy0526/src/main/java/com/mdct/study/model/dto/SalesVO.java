@@ -8,7 +8,7 @@ public class SalesVO {
 	private String cd_nm;
 	private String prod_nm;
 	
-	//getter&settet
+	//getter&setter
 	public String getArea_cd() {
 		return area_cd;
 	}
