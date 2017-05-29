@@ -1,54 +1,147 @@
 package com.mdct.study.model.dto;
 
 public class SalesVO {
-	private String area_cd;
-	private String prod_id;
-	private int sales_cnt;
-	private String region_area;
-	private String cd_nm;
-	private String prod_nm;
-	
-	//getter&setter
-	public String getArea_cd() {
-		return area_cd;
+	private String expt_rt;
+	private String column_no_1;
+	private String column_no_2;
+	private String column_no_3;
+	private String column_no_4;
+	private String column_no_5;
+	private String column_no_6;
+	private String column_no_7;
+	private String column_no_8;
+	private String column_no_9;
+	private String column_no_10;
+	private int tot;
+
+
+	public String getExpt_rt() {
+		return expt_rt;
 	}
-	public String getProd_id() {
-		return prod_id;
+
+
+	public void setExpt_rt(String expt_rt) {
+		this.expt_rt = expt_rt;
 	}
-	public int getSales_cnt() {
-		return sales_cnt;
+
+
+	public String getColumn_no_1() {
+		return column_no_1;
 	}
-	public String getRegion_area() {
-		return region_area;
+
+
+	public void setColumn_no_1(String column_no_1) {
+		this.column_no_1 = column_no_1;
 	}
-	public String getCd_nm() {
-		return cd_nm;
+
+
+	public String getColumn_no_2() {
+		return column_no_2;
 	}
-	public String getProd_nm() {
-		return prod_nm;
+
+
+	public void setColumn_no_2(String column_no_2) {
+		this.column_no_2 = column_no_2;
 	}
-	public void setArea_cd(String area_cd) {
-		this.area_cd = area_cd;
+
+
+	public String getColumn_no_3() {
+		return column_no_3;
 	}
-	public void setProd_id(String prod_id) {
-		this.prod_id = prod_id;
+
+
+	public void setColumn_no_3(String column_no_3) {
+		this.column_no_3 = column_no_3;
 	}
-	public void setSales_cnt(int sales_cnt) {
-		this.sales_cnt = sales_cnt;
+
+
+	public String getColumn_no_4() {
+		return column_no_4;
 	}
-	public void setRegion_area(String region_area) {
-		this.region_area = region_area;
+
+
+	public void setColumn_no_4(String column_no_4) {
+		this.column_no_4 = column_no_4;
 	}
-	public void setCd_nm(String cd_nm) {
-		this.cd_nm = cd_nm;
+
+
+	public String getColumn_no_5() {
+		return column_no_5;
 	}
-	public void setProd_nm(String prod_nm) {
-		this.prod_nm = prod_nm;
+
+
+	public void setColumn_no_5(String column_no_5) {
+		this.column_no_5 = column_no_5;
 	}
-	
+
+
+	public String getColumn_no_6() {
+		return column_no_6;
+	}
+
+
+	public void setColumn_no_6(String column_no_6) {
+		this.column_no_6 = column_no_6;
+	}
+
+
+	public String getColumn_no_7() {
+		return column_no_7;
+	}
+
+
+	public void setColumn_no_7(String column_no_7) {
+		this.column_no_7 = column_no_7;
+	}
+
+
+	public String getColumn_no_8() {
+		return column_no_8;
+	}
+
+
+	public void setColumn_no_8(String column_no_8) {
+		this.column_no_8 = column_no_8;
+	}
+
+
+	public String getColumn_no_9() {
+		return column_no_9;
+	}
+
+
+	public void setColumn_no_9(String column_no_9) {
+		this.column_no_9 = column_no_9;
+	}
+
+
+	public String getColumn_no_10() {
+		return column_no_10;
+	}
+
+
+	public void setColumn_no_10(String column_no_10) {
+		this.column_no_10 = column_no_10;
+	}
+
+
+	public int getTot() {
+		return tot;
+	}
+
+
+	public void setTot(int tot) {
+		this.tot = tot;
+	}
+
+
 	@Override
 	public String toString() {
-		return "SalesVO [area_cd=" + area_cd + ", prod_id=" + prod_id + ", sales_cnt=" + sales_cnt + ", region_area="
-				+ region_area + ", cd_nm=" + cd_nm + ", prod_nm=" + prod_nm + "]";
+		return "SalesVO [expt_rt=" + expt_rt + ", column_no_1=" + column_no_1 + 
+				", column_no_2=" + column_no_2 + ", column_no_3="
+				+ ", column_no_4=" + column_no_4 + ", column_no_5=" + column_no_5 + 
+				", column_no_6=" + column_no_6 + ", column_no_7=" + column_no_7 + 
+				", column_no_8=" + column_no_8 + ", column_no_9=" + column_no_9 + 
+				", column_no_10=" + column_no_10 + ", tot=" + tot + "]";
 	}
 }
