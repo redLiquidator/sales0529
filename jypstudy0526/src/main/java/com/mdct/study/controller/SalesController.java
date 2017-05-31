@@ -21,8 +21,10 @@ public class SalesController {
 	
 	//sales 목록
 	@RequestMapping("list.do")
-	public String salesList(Model model){
-		List<SalesVO> list = salesService.salesList();
+	public String salesList(Model model,Integer no){
+		no=20;
+		System.out.println(no);
+		List<SalesVO> list = salesService.salesList(no);
 		model.addAttribute("list",list);
 		return "sales/sales_list";
 	}

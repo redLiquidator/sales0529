@@ -23,9 +23,11 @@ public class SalesDAOImpl implements SalesDAO {
 	@Inject
     SqlSession sqlSession;
 	
+	
 	@Override
-	public List<SalesVO> salesList() {
-		List<SalesVO> list = sqlSession.selectList("sales.listAll");
+	public List<SalesVO> salesList(Integer no) {
+		List<SalesVO> list = sqlSession.selectList("sales.listAll",no);
+		//System.out.println("ddddddddddd");
 		return list;
 		
 		//return sqlSession.selectList("sales.listAll");

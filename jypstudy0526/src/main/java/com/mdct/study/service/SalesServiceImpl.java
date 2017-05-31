@@ -17,8 +17,8 @@ public class SalesServiceImpl implements SalesService {
 	
 	//세일즈목록
 	@Override
-	public List<SalesVO> salesList() {
-		return salesDAO.salesList();
+	public List<SalesVO> salesList(int no) {
+		return salesDAO.salesList(no);
 	}
 
 }
