@@ -26,9 +26,10 @@ public class SalesController {
 	@RequestMapping("list.do")
 	//@RequestMapping(value="list.do", method=RequestMethod.POST)
 	//public String salesList(Model model,Parameter parameter){
-	public String salesList(Model model,Parameter value){
+	public String salesList(Model model,int value){
 		//int value=parameter.getNo();
-		System.out.println("you entered"+value);
+		System.out.println("you entered value:"+value);
+		//System.out.println("you entered hi:"+hi);
 		System.out.println("aaaaaaaaaaa");
 		List<SalesVO> list = salesService.salesList(value);
 		model.addAttribute("list",list);

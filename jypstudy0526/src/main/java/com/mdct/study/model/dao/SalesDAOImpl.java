@@ -26,12 +26,15 @@ public class SalesDAOImpl implements SalesDAO {
 	
 	
 	@Override
-	public List<SalesVO> salesList(Parameter value) {
-		List<SalesVO> list = sqlSession.selectList("sales.listAll",value);
+	public List<SalesVO> salesList(int value) {
 		System.out.println("this is SalesDAOImpl page"+value);
+		if(value==0){
+		List<SalesVO> list = sqlSession.selectList("sales.listAll");
+		return list;}
+		else{
+		List<SalesVO> list = sqlSession.selectList("sales.listCity",value);	
 		return list;
-		
-		//return sqlSession.selectList("sales.listAll");
+		}
 		
 	}
 

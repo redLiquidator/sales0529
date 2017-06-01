@@ -23,11 +23,19 @@ border:	1px solid gray;}
 </form>
  -->
  
+<!-- empno: <input type="text" name="value" value=""> -->
  
-<form action="/study/" method="get" name="textform"> 
-empno: <input type="text" name="value">
+<%-- <form action="/study/sales/list.do" method="get" name="textform">  --%>
+지역선택<form action="/study/sales/list.do" method="get"> 
+<select name="value">
+<option value="0">전체</option>
+<option value="10">10번부서</option>
+<option value="20">20번부서</option>
+<option value="30">30번부서</option>
+</select>
+<input type="submit" value="Submit">
 </form>
-	
+<br>	
 	
 	<table border="1" width="1300px">
 		<tr>

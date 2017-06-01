@@ -17,8 +17,14 @@
 		WHERE A.AREA_CD = B.CD_ID AND A.PROD_ID=C.PROD_ID
 	</select> -->
 	
+	
 	<select id="listAll" parameterType="Integer" resultType="com.mdct.study.model.dto.SalesVO">
  SELECT * FROM EMP
- WHERE DEPTNO=${value}
 	</select>	
+	
+	
+	<select id="listCity" parameterType="Integer" resultType="com.mdct.study.model.dto.SalesVO">
+ SELECT * FROM EMP
+ WHERE DEPTNO=${value}
+	</select>
 </mapper>

@@ -7,6 +7,6 @@ import com.mdct.study.model.dto.SalesVO;
 
 public interface SalesService {
 	//세일즈목록
-	public List<SalesVO> salesList(Parameter value);
+	public List<SalesVO> salesList(int value);
 	
 }

@@ -18,7 +18,7 @@ public class SalesServiceImpl implements SalesService {
 	
 	//세일즈목록
 	@Override
-	public List<SalesVO> salesList(Parameter value) {
+	public List<SalesVO> salesList(int value) {
 		System.out.println("this is SalesServiceImpl page"+value);
 		return salesDAO.salesList(value);
 	}
