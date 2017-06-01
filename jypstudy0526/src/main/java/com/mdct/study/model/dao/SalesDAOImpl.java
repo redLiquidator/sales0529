@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.mdct.study.model.dto.Parameter;
 import com.mdct.study.model.dto.SalesVO;
 
 //현재 클래스를 DAO bean으로 등록시킴
@@ -25,9 +26,9 @@ public class SalesDAOImpl implements SalesDAO {
 	
 	
 	@Override
-	public List<SalesVO> salesList(Integer no) {
-		List<SalesVO> list = sqlSession.selectList("sales.listAll",no);
-		//System.out.println("ddddddddddd");
+	public List<SalesVO> salesList(Parameter value) {
+		List<SalesVO> list = sqlSession.selectList("sales.listAll",value);
+		System.out.println("this is SalesDAOImpl page"+value);
 		return list;
 		
 		//return sqlSession.selectList("sales.listAll");
