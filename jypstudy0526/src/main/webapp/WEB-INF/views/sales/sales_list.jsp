@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,17 +33,10 @@ th{background-color:orange;}
 
 </head>
 <body>
-<!-- <form action="/sales/list.do">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             SalesController.java" method="post">
-	deptno:<input type="text" name="value">
-<button type="submit" value="Submit">입력</button>
-</form>
- -->
- 
-<!-- empno: <input type="text" name="value" value=""> -->
- 
-<%-- <form action="/study/sales/list.do" method="get" name="textform">  --%>
+
+
 <form action="/study/sales/list.do" method="get"> 
-<select name="value">
+<select name="city">
 <option value="0">전체</option>
 <option value="10">부산</option>
 <option value="20">서울</option>
@@ -54,10 +48,21 @@ th{background-color:orange;}
 <option value="80">안양</option>
 <option value="90">강원</option>
 </select>
+
+<select name="direction">
+<option value="1">도시총계를 아래쪽에</option>
+<option value="2">도시총계를 위쪽에</option>
+</select>
 <input type="submit" value="Submit">
 </form>
 <br>	
-	
+
+<%-- 
+<form action="/study/sales/list.do" method="get"> 
+
+</form> --%>
+<br>	
+
 	<table border="1" width="1300px">
 		<tr>
 			<th>expt_rt</th>

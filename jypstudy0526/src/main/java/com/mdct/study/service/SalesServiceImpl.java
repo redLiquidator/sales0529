@@ -1,5 +1,6 @@
 package com.mdct.study.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -18,9 +19,9 @@ public class SalesServiceImpl implements SalesService {
 	
 	//세일즈목록
 	@Override
-	public List<SalesVO> salesList(int value) {
-		System.out.println("this is SalesServiceImpl page"+value);
-		return salesDAO.salesList(value);
+	public List<SalesVO> salesList(HashMap<Integer, Integer> map) {
+		System.out.println("this is SalesServiceImpl page"+map);
+		return salesDAO.salesList(map);
 	}
 
 }

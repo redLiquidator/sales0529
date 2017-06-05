@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sales">
-	<!-- salesTbl 리스트 불러들이기 -->
-	<!-- 
-	private String area_cd;
-	private String prod_id;
-	private int sales_cnt;
-	private String region_area;
-	private String cd_nm;
-	private String prod_nm;
-	
-	 -->
-<!-- 	<select id="listAll" resultType="com.mdct.study.model.dto.SalesVO">
-		SELECT A.AREA_CD, A.PROD_ID, A.SALES_CNT, A.REGION_AREA, B.CD_NM, C.PROD_NM
-		FROM SALE_TBL_TEMP A, CD_ID_TEMP B, PROD_ID_TEMP C
-		WHERE A.AREA_CD = B.CD_ID AND A.PROD_ID=C.PROD_ID
-	</select> -->
-	
-	
-	<select id="listAll" parameterType="Integer" resultType="com.mdct.study.model.dto.SalesVO">
+<select id="listAll" parameterType="map" resultType="com.mdct.study.model.dto.SalesVO">
  SELECT  EXPT_RT
         ,COL1||DECODE(COL1_INT,GREATEST(COL1_INT,COL2_INT,COL3_INT,COL4_INT,COL5_INT,COL6_INT,COL7_INT,COL8_INT,COL9_INT,COL10_INT),'▲',LEAST(COL1_INT,COL2_INT,COL3_INT,COL4_INT,COL5_INT,COL6_INT,COL7_INT,COL8_INT,COL9_INT,COL10_INT),'▼') COLUMN_NO_1
         ,COL2||DECODE(COL2_INT,GREATEST(COL1_INT,COL2_INT,COL3_INT,COL4_INT,COL5_INT,COL6_INT,COL7_INT,COL8_INT,COL9_INT,COL10_INT),'▲',LEAST(COL1_INT,COL2_INT,COL3_INT,COL4_INT,COL5_INT,COL6_INT,COL7_INT,COL8_INT,COL9_INT,COL10_INT),'▼') COLUMN_NO_2
@@ -81,7 +64,7 @@ ORDER BY AREA_CD
 	</select>	
 	
 	
-	<select id="listCity" parameterType="Integer" resultType="com.mdct.study.model.dto.SalesVO">
+	<select id="listCity" parameterType="map" resultType="com.mdct.study.model.dto.SalesVO">
 SELECT  EXPT_RT
         ,COL1||DECODE(COL1_INT,GREATEST(COL1_INT,COL2_INT,COL3_INT,COL4_INT,COL5_INT,COL6_INT,COL7_INT,COL8_INT,COL9_INT,COL10_INT),'▲',LEAST(COL1_INT,COL2_INT,COL3_INT,COL4_INT,COL5_INT,COL6_INT,COL7_INT,COL8_INT,COL9_INT,COL10_INT),'▼') COLUMN_NO_1
         ,COL2||DECODE(COL2_INT,GREATEST(COL1_INT,COL2_INT,COL3_INT,COL4_INT,COL5_INT,COL6_INT,COL7_INT,COL8_INT,COL9_INT,COL10_INT),'▲',LEAST(COL1_INT,COL2_INT,COL3_INT,COL4_INT,COL5_INT,COL6_INT,COL7_INT,COL8_INT,COL9_INT,COL10_INT),'▼') COLUMN_NO_2
@@ -130,7 +113,7 @@ FROM(
     ,PROD_ID
     ,SUM(SALES_CNT) SALES_CNT
     FROM SALE_TBL SALE
-        WHERE ROWNUM<![CDATA[<]]>=10000 AND AREA_CD=${value}
+        WHERE ROWNUM<![CDATA[<]]>=10000 AND AREA_CD=#{city}
   GROUP BY AREA_CD
     ,REGION_AREA
                 ,PROD_ID
@@ -140,6 +123,6 @@ WHERE A.AREA_CD=B.CD_ID
        GROUP BY ROLLUP(AREA_CD
                ,REGION_AREA)
 )
-ORDER BY AREA_CD
+ORDER BY AREA_CD,GRP*#{direction}
 	</select>
 </mapper>

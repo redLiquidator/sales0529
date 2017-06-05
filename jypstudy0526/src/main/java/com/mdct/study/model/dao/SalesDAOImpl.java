@@ -1,5 +1,6 @@
 package com.mdct.study.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -26,14 +27,15 @@ public class SalesDAOImpl implements SalesDAO {
 	
 	
 	@Override
-	public List<SalesVO> salesList(int value) {
-		System.out.println("this is SalesDAOImpl page"+value);
-		if(value==0){
+	public List<SalesVO> salesList(HashMap<Integer, Integer> map) {
+		System.out.println("this is SalesDAOImpl page"+map);
+		
+		if(map==null){
 		List<SalesVO> list = sqlSession.selectList("sales.listAll");
 		return list;
 		}
-		else{
-		List<SalesVO> list = sqlSession.selectList("sales.listCity",value);	
+		else{			
+		List<SalesVO> list = sqlSession.selectList("sales.listCity",map);	
 		return list;
 		}
 		
