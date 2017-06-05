@@ -30,7 +30,8 @@ public class SalesDAOImpl implements SalesDAO {
 		System.out.println("this is SalesDAOImpl page"+value);
 		if(value==0){
 		List<SalesVO> list = sqlSession.selectList("sales.listAll");
-		return list;}
+		return list;
+		}
 		else{
 		List<SalesVO> list = sqlSession.selectList("sales.listCity",value);	
 		return list;

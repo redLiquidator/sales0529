@@ -12,9 +12,9 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-        <property name="username" value="scott"/>
-        <property name="password" value="tiger"/>
+        <property name="url" value="jdbc:oracle:thin:@192.168.0.55:1521:mdctdb"/>
+        <property name="username" value="mdct_user"/>
+        <property name="password" value="mdct"/>
     </bean> 
     
         <!-- SqlSessionFactory 객체 주입 -->
