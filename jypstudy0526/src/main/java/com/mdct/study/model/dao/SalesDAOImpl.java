@@ -1,6 +1,8 @@
 package com.mdct.study.model.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -8,6 +10,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.mdct.study.model.dto.AreaVO;
 import com.mdct.study.model.dto.Parameter;
 import com.mdct.study.model.dto.SalesVO;
 
@@ -27,19 +30,30 @@ public class SalesDAOImpl implements SalesDAO {
 	
 	
 	@Override
-	public List<SalesVO> salesList(HashMap<Integer, Integer> map) {
+	public List<SalesVO> salesList(HashMap<String, Object> map) {
 		System.out.println("this is SalesDAOImpl page"+map);
-		
-		if(map==null){
-		List<SalesVO> list = sqlSession.selectList("sales.listAll");
+		int direction1=(Integer) map.get("direction");
+		if(map.get("city")==null){
+		List<SalesVO> list = sqlSession.selectList("sales.listAll",direction1);
+		System.out.println("we got list here:"+list);
 		return list;
 		}
 		else{			
 		List<SalesVO> list = sqlSession.selectList("sales.listCity",map);	
+		System.out.println("we got list here:"+list);
 		return list;
 		}
+	};
+	
+	@Override
+	public List<AreaVO> areaList(){
+	List<AreaVO> areaList=sqlSession.selectList("sales.areaList");
+/*	ArrayList<AreaVO> list1=new ArrayList<AreaVO>();
+	for(Iterator<AreaVO> itr=list1.iterator(); itr.hasNext();){
 		
-	}
-
-
+		list1.get(itr.next());
+	}*/
+	System.out.println("we got areaList here:"+areaList);
+	return areaList;
+	};
 }

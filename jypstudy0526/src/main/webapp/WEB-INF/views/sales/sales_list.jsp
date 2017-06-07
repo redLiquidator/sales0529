@@ -37,30 +37,20 @@ th{background-color:orange;}
 
 <form action="/study/sales/list.do" method="get"> 
 <select name="city">
-<option value="0">전체</option>
-<option value="10">부산</option>
-<option value="20">서울</option>
-<option value="30">광주</option>
-<option value="40">대전</option>
-<option value="50">평택</option>
-<option value="60">인천</option>
-<option value="70">아산</option>
-<option value="80">안양</option>
-<option value="90">강원</option>
+<option value="">전체</option>
+<c:forEach var="area" items="${areaList}">
+<option value="${area.area_cd}">${area.cd_nm}</option>
+</c:forEach>
 </select>
 
 <select name="direction">
 <option value="1">도시총계를 아래쪽에</option>
-<option value="2">도시총계를 위쪽에</option>
+<option value="-1">도시총계를 위쪽에</option>
 </select>
 <input type="submit" value="Submit">
 </form>
 <br>	
 
-<%-- 
-<form action="/study/sales/list.do" method="get"> 
-
-</form> --%>
 <br>	
 
 	<table border="1" width="1300px">
@@ -95,5 +85,6 @@ th{background-color:orange;}
 			</tr>
 		</c:forEach>
 	</table>
+
 </body>
 </html>

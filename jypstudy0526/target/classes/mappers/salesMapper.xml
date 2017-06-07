@@ -60,7 +60,7 @@ WHERE A.AREA_CD=B.CD_ID
        GROUP BY ROLLUP(AREA_CD
                ,REGION_AREA)
 )
-ORDER BY AREA_CD 
+ORDER BY AREA_CD,GRP*#{direction1} 
 	</select>	
 	
 	
@@ -113,7 +113,10 @@ FROM(
     ,PROD_ID
     ,SUM(SALES_CNT) SALES_CNT
     FROM SALE_TBL SALE
-        WHERE ROWNUM<![CDATA[<]]>=10000 AND AREA_CD=#{city}
+        WHERE ROWNUM<![CDATA[<]]>=10000 
+        <if test="city != null">
+        AND AREA_CD=#{city}
+        </if>
   GROUP BY AREA_CD
     ,REGION_AREA
                 ,PROD_ID
@@ -123,6 +126,15 @@ WHERE A.AREA_CD=B.CD_ID
        GROUP BY ROLLUP(AREA_CD
                ,REGION_AREA)
 )
-ORDER BY AREA_CD,GRP*#{direction}
+ORDER BY AREA_CD
+<if test="direction != null">,GRP*#{direction} </if>
+	</select>
+	
+<select id="areaList" resultType="com.mdct.study.model.dto.AreaVO">	
+	select s.area_cd area_cd,c.cd_nm cd_nm
+from jyp_sale_tbl s, cd_tbl c
+where c.cd_id=s.area_cd
+group by s.area_cd,c.cd_nm
+having count(*)<![CDATA[>]]>0
 	</select>
 </mapper>

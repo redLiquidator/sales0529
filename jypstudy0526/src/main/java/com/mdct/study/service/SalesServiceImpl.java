@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.mdct.study.model.dao.SalesDAO;
+import com.mdct.study.model.dto.AreaVO;
 import com.mdct.study.model.dto.Parameter;
 import com.mdct.study.model.dto.SalesVO;
 
@@ -19,9 +20,16 @@ public class SalesServiceImpl implements SalesService {
 	
 	//세일즈목록
 	@Override
-	public List<SalesVO> salesList(HashMap<Integer, Integer> map) {
+	public List<SalesVO> salesList(HashMap<String, Object> map) {
 		System.out.println("this is SalesServiceImpl page"+map);
 		return salesDAO.salesList(map);
 	}
+	
+	@Override
+	public List<AreaVO> areaList(){
+		System.out.println("we got"+salesDAO.areaList());
+		return salesDAO.areaList();
+	};
+	
 
 }
