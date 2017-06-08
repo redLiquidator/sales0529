@@ -27,6 +27,7 @@ public class SalesController {
 	
 	@RequestMapping("list.do")
 	public String salesList1(Model model){
+		System.out.println("start");
 		List<AreaVO> areaList=salesService.areaList();
 		model.addAttribute("areaList",areaList);
 		return "sales/sales_list";
@@ -34,6 +35,11 @@ public class SalesController {
 	//sales 목록
 	@RequestMapping(value="list.do", method=RequestMethod.POST)
 	public String salesList(Model model,String city,String direction){
+		
+		System.out.println("start");
+		List<AreaVO> areaList=salesService.areaList();
+		model.addAttribute("areaList",areaList);
+		
 		int dir=Integer.parseInt(direction);
 		
 		System.out.println("you entered value:"+city+dir);
