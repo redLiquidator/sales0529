@@ -115,7 +115,7 @@ FROM(
     FROM SALE_TBL SALE
         WHERE ROWNUM<![CDATA[<]]>=10000 
         <if test="city != null">
-        AND AREA_CD=#{city}
+        AND AREA_CD=NVL(#{city},AREA_CD)
         </if>
   GROUP BY AREA_CD
     ,REGION_AREA
@@ -127,7 +127,7 @@ WHERE A.AREA_CD=B.CD_ID
                ,REGION_AREA)
 )
 ORDER BY AREA_CD
-<if test="direction != null">,GRP*#{direction} </if>
+<if test="direction != null">,TO_NUMBER(GRP*#{direction}) </if>
 	</select>
 	
 <select id="areaList" resultType="com.mdct.study.model.dto.AreaVO">	

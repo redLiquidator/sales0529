@@ -20,6 +20,10 @@ th{background-color:orange;}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
  $(document).ready(function(){
+	 
+	 	/* $("#dir_sel").on("change",function(){
+	 		alert($("#dir_sel").val());
+	 	}); */
           $(".expt_rt").each(function(index){
         	 if($(this).children().first().html().substr(2,2)=="총계"){
         		 $(this).css("background","yellowgreen");
@@ -35,7 +39,7 @@ th{background-color:orange;}
 <body>
 
 
-<form action="/study/sales/list.do" method="get"> 
+<form action="/study/sales/list.do" method="post"> 
 <select name="city">
 <option value="">전체</option>
 <c:forEach var="area" items="${areaList}">
@@ -43,7 +47,7 @@ th{background-color:orange;}
 </c:forEach>
 </select>
 
-<select name="direction">
+<select name="direction" id="dir_sel">
 <option value="1">도시총계를 아래쪽에</option>
 <option value="-1">도시총계를 위쪽에</option>
 </select>

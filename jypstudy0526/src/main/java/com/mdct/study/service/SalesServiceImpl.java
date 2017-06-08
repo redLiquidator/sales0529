@@ -21,7 +21,7 @@ public class SalesServiceImpl implements SalesService {
 	//세일즈목록
 	@Override
 	public List<SalesVO> salesList(HashMap<String, Object> map) {
-		System.out.println("this is SalesServiceImpl page"+map);
+		System.out.println("this is SalesServiceImpl page"+map.get("city")+map.get("direction"));
 		return salesDAO.salesList(map);
 	}
 	

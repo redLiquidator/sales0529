@@ -31,18 +31,19 @@ public class SalesDAOImpl implements SalesDAO {
 	
 	@Override
 	public List<SalesVO> salesList(HashMap<String, Object> map) {
-		System.out.println("this is SalesDAOImpl page"+map);
+		System.out.println("this is SalesDAOImpl page"+map.get("city"));
 		int direction1=(Integer) map.get("direction");
+		List<SalesVO> list ;
 		if(map.get("city")==null){
-		List<SalesVO> list = sqlSession.selectList("sales.listAll",direction1);
-		System.out.println("we got list here:"+list);
-		return list;
+			list = sqlSession.selectList("sales.listAll",direction1);
+			System.out.println("we got list here2:"+list);
 		}
-		else{			
-		List<SalesVO> list = sqlSession.selectList("sales.listCity",map);	
-		System.out.println("we got list here:"+list);
-		return list;
+		else{
+			map.put("direction", direction1);
+			list = sqlSession.selectList("sales.listCity",map);	
+			System.out.println("we got list here:"+list);
 		}
+		return list;
 	};
 	
 	@Override

@@ -2,7 +2,7 @@ package com.mdct.study.controller;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mdct.study.service.SalesService;
 import com.mdct.study.model.dto.AreaVO;
@@ -25,22 +25,27 @@ public class SalesController {
 	@Inject
 	SalesService salesService;
 	
-	
-	//sales 목록
 	@RequestMapping("list.do")
-	public String salesList(Model model,String city,int direction){
+	public String salesList1(Model model){
 		List<AreaVO> areaList=salesService.areaList();
-		System.out.println("you entered value:"+city+direction);
-		HashMap<String,Object> map=new HashMap<String,Object>();
-		map.put("city",city);
-		map.put("direction", direction);
-		System.out.println(""
-				+ "map.get(city) says..."+map.get(city)+
-				"  map.get(direction) says"+map.get(direction));
-		List<SalesVO> list = salesService.salesList(map);
-		
-		model.addAttribute("list",list);
 		model.addAttribute("areaList",areaList);
+		return "sales/sales_list";
+	}
+	//sales 목록
+	@RequestMapping(value="list.do", method=RequestMethod.POST)
+	public String salesList(Model model,String city,String direction){
+		int dir=Integer.parseInt(direction);
+		
+		System.out.println("you entered value:"+city+dir);
+		HashMap<String,Object> map=new HashMap<String,Object>();
+		
+		map.put("city",city);
+		map.put("direction", dir);
+		System.out.println(""
+				+ "map.get(city) says..."+map.get("city")+
+				"  map.get(direction) says"+map.get("direction"));
+		List<SalesVO> list=salesService.salesList(map);
+		model.addAttribute("list",list);
 		return "sales/sales_list";
 	}
 
